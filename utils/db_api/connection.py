@@ -8,7 +8,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from utils.db_api.base import Base
-from utils.db_api.models import Users, Projects
+from utils.db_api.models import Users
 
 
 class Database:
@@ -49,27 +49,11 @@ class Database:
 
             response = await session.get(Users, user_id)
             return response
-
-    # ---Projects---
-
-    async def reg_project(self, title: str, description: str, demo: str, github: str):
-        """Some docs"""
-        async with self.async_session() as session:
-            session: AsyncSession
-            await session.merge(
-                Projects(
-                    title=title,
-                    description=description,
-                    demo=demo,
-                    github=github
-                )
-            )
-            await session.commit()
-
-    async def get_all_projects(self) -> Sequence[Projects]:
+    
+    async def get_all_users(self) -> Sequence[Users]:
         """Some docs"""
         async with self.async_session() as session:
             session: AsyncSession
 
-            response = await session.execute(select(Projects))
+            response = await session.execute(select(Users))
             return response.scalars().all()

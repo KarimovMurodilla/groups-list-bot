@@ -12,14 +12,3 @@ class Users(Base):
     username = Column(String(20))
     first_name = Column(String(50))
     date = Column(DateTime, default=datetime.utcnow)
-
-
-class Projects(Base):
-    __tablename__ = "projects"
-
-    id = Column(Integer, primary_key=True)
-    title = Column(String(50))
-    description = Column(String(50))
-    demo = Column(String(50))
-    github = Column(String(100))
-    date = Column(DateTime, default=datetime.utcnow)
