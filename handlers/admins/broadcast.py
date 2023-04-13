@@ -49,9 +49,9 @@ async def send_message(user_id: int, text: str, disable_notification: bool = Fal
 
 async def broadcaster(text) -> int:
     """
-    Simple broadcaster
+    Простая рассылка
 
-    :return: Count of messages
+    :return: Количество отправленных сообщений
     """
     count = 0
     try:
@@ -60,6 +60,6 @@ async def broadcaster(text) -> int:
                 count += 1
             await asyncio.sleep(.05)  # 20 messages per second (Limit: 30 messages per second)
     finally:
-        log.info(f"{count} messages successful sent.")
+        log.info(f"{count} сообщений отправлено успешно.")
 
     return count

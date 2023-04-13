@@ -6,5 +6,6 @@ from .answering import CallbackQueryMiddleware
 
 
 if __name__ == "middlewares":
+    # устанавливаем мидлвары
     dp.middleware.setup(ThrottlingMiddleware())
     dp.middleware.setup(CallbackQueryMiddleware())

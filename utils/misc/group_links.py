@@ -1,11 +1,14 @@
+
+# здесь находится ссылки на групп
 links = {
-    'psycho': [
-        'https://t.me/marketpsy_chat'
+    'Психология': [
+        'https://t.me/marketpsy_chat',
+        'https://t.me/gT5AT5x92otmNWM1',
     ],
-    'crypto': [
+    'Криптовалюта': [
         'https://t.me/usdt_kriptovalyuty'
     ],
-    'startup': [
+    'Стартапы': [
         'https://t.me/russol_chat'
     ],
 }

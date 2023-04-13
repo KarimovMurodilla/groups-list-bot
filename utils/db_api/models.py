@@ -5,6 +5,7 @@ from utils.db_api.base import Base
 from datetime import datetime
 
 
+# Модель (таблица) для юзеров
 class Users(Base):
     __tablename__ = "users"
 

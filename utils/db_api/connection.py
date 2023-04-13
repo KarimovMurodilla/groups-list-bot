@@ -10,11 +10,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from utils.db_api.base import Base
 from utils.db_api.models import Users
 
+from data.config import DATABASE_URL
+
 
 class Database:
     async def load(self) -> AsyncSession:
         engine = create_async_engine(
-            "sqlite+aiosqlite:///database.db",
+            DATABASE_URL,
             future=True
         )
 
@@ -27,10 +29,10 @@ class Database:
 
         self.async_session = async_sessionmaker
 
-    # ---Users---
+    # ---Для пользователей---
 
     async def reg_user(self, user_id: str, username: str, first_name: str):
-        """Some docs"""
+        """Регистрация пользователя"""
         async with self.async_session() as session:
             session: AsyncSession
             await session.merge(
@@ -43,7 +45,7 @@ class Database:
             await session.commit()
 
     async def get_user(self, user_id) -> Users:
-        """Some docs"""
+        """Получения пользователя"""
         async with self.async_session() as session:
             session: AsyncSession
 
@@ -51,7 +53,7 @@ class Database:
             return response
     
     async def get_all_users(self) -> Sequence[Users]:
-        """Some docs"""
+        """Получения всех пользователей"""
         async with self.async_session() as session:
             session: AsyncSession
 

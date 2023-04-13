@@ -7,6 +7,7 @@ from aiogram.dispatcher.middlewares import BaseMiddleware
 from aiogram.utils.exceptions import Throttled
 
 
+# Чтобы предотвратить флуд на боте, используем этот middleware
 class ThrottlingMiddleware(BaseMiddleware):
     """
     Simple middleware
